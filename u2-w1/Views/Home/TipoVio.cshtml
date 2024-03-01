@@ -1,0 +1,45 @@
+﻿@model IEnumerable<u2_w1.Models.TipoViolazione>
+
+@{
+    ViewBag.Title = "TipoVio";
+}
+
+<h2>TipoVio</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CreateVio")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdViolazione)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descrizione)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Contestabile)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdViolazione)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descrizione)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Contestabile)
+        </td>
+        <td>
+            @Html.ActionLink("Modifica", "UpdateVio", new { id=item.IdViolazione }) |
+            |
+            @Html.ActionLink("Elimina", "DeleteVio", new { id=item.IdViolazione })
+        </td>
+    </tr>
+}
+
+</table>
